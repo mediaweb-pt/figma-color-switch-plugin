@@ -16,13 +16,19 @@
 
     input[type="checkbox"] {
         visibility: hidden;
+        vertical-align: top;
+        margin: 1px 2px 4px 5px;
+    }
+
+    .group  input[type="checkbox"]:first-child {
+        margin: 1px 2px 4px 0;
     }
 
     input[type="checkbox"]:after {
         visibility: visible;
         content: '';
-        display: inline-flex;
-        margin-top: 3px;
+        display: inline-block;
+        /*margin-top: 3px;*/
         width: 12px;
         height: 12px;
         border-radius: 2px;
@@ -34,7 +40,7 @@
     input[type="checkbox"]:checked:after {
         content: "✔";
         padding: 3px 1px;
-        line-height: 0.6;
+        line-height: 0.5;
         color: #FFF;
         border: 1px solid #18a0fb;
         background-color: #18a0fb;
@@ -88,14 +94,24 @@
         font-size: 11px;
     }
 
+    .label-group {
+        display: block;
+        margin-bottom: 7px;
+        font-weight: 600;
+        font-size: 11px;
+    }
+
+    .check-label {
+        cursor: pointer;
+        user-select: none;
+    }
+
     .group {
         display: block;
     }
 
     .or {
         margin: 0 0 5px 0;
-        color: #531096;
-        /*margin: -14px 0 -10px;*/
     }
 
     .colorSpan {
@@ -193,19 +209,21 @@
         <option>Choose a color style</option>
     </select>
     <hr>
-    <span class="label">Apply to</span>
-    <input type="checkbox" id="fill" checked="checked" />Fill
-    <input type="checkbox" id="stroke" checked="checked" />Stroke
-    <hr class="groupMargin">
-    <span class="label">Apply Types</span>
+    <span class="label-group">Apply to</span>
     <span class="group">
-        <input type="checkbox" id="rectangle" checked="checked" />Rectangle
-        <input type="checkbox" id="ellipse" />Ellipse
-        <input type="checkbox" id="polygon" />Polygon
+        <label class="check-label"><input type="checkbox" id="fill" checked="checked" /><span>Fill</span></label>
+        <label class="check-label"><input type="checkbox" id="stroke" checked="checked" />Stroke</label>
+    </span>
+    <hr class="groupMargin">
+    <span class="label-group">Apply Types</span>
+    <span class="group">
+        <label class="check-label"><input type="checkbox" id="rectangle" checked="checked" />Rectangle</label>
+        <label class="check-label"><input type="checkbox" id="ellipse" />Ellipse</label>
+        <label class="check-label"><input type="checkbox" id="polygon" />Polygon</label>
     </span>
     <span class="group">
-        <input type="checkbox" id="vector" />Vector
-        <input type="checkbox" id="text"  />Text
+         <label class="check-label"><input type="checkbox" id="vector" />Vector</label>
+         <label class="check-label"><input type="checkbox" id="text"  />Text</label>
     </span>
     <hr class="groupMargin">
     <button id="create">Switch</button>
